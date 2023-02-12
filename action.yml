@@ -1,0 +1,36 @@
+name: '@nadeemjazmawe/Sign-action-signtool.exe'
+description: This action Sign files using windows signtool.exe
+
+author: '@NadeemJazmawe'
+
+inputs:
+  filepath:
+    description: 'Path to file to sign'
+    required: true
+    
+  certificate:
+    description: 'Certificate String, PEM file'
+    required: true
+    
+  cert-password:
+    description: 'Certificate Password'
+    required: true
+    
+
+runs:
+  using: 'composite'
+  steps:
+      - name: 'Create file from secret'
+        shell: pwsh
+        run: |
+          echo '${{inputs.certificate}}' > filename.pem
+          dir
+          
+      - name: 'Create file from secret'
+        shell: pwsh
+        run: |
+          openssl pkcs12 -export -in filename.pem -out Certificate.pfx -passin pass:${{inputs.cert-password}} -passout pass:${{inputs.cert-password}}
+  
+      - name: 'Sign the file'      
+        shell: pwsh
+        run: ${{ github.action_path }}\src\signtool.exe sign /q /f Certificate.pfx /fd SHA256 /p ${{inputs.cert-password}} /t http://timestamp.digicert.com/?alg=sha256 ${{inputs.filepath}}
