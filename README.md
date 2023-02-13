@@ -3,7 +3,7 @@ This action has been developed to be used in [Ginger](https://github.com/Ginger-
 
 Check it out - [https://ginger.amdocs.com/](https://ginger.amdocs.com/)
 
-## Code sign a file
+## About
 This action signs files using windows signtool.exe with a code signing certificate(it takes password).
 
 This action works only on Windows and that means the workflow should run on windows-latest.
