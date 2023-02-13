@@ -1,5 +1,5 @@
 # Sign-action-signtool.exe
-This action has been developed to be used in Ginger, which is an open source project build by Amdocs.
+This action has been developed to be used in [Ginger](https://github.com/Ginger-Automation/Ginger) CI/CD, which is an open source project build by Amdocs.
 
 ## Code sign a file
 This action signs files using windows signtool.exe with a code signing certificate(it takes password).
