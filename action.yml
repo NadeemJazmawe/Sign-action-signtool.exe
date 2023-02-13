@@ -16,6 +16,11 @@ inputs:
     description: 'Certificate Password'
     required: true
     
+  timeStampUrl:
+    description: 'URL of the timestamp server used for the signing'
+    default: 'http://timestamp.digicert.com/?alg=sha256'
+    required: false
+    
 
 runs:
   using: 'composite'
@@ -33,4 +38,4 @@ runs:
   
       - name: 'Sign the file'      
         shell: pwsh
-        run: ${{ github.action_path }}\src\signtool.exe sign /q /f Certificate.pfx /fd SHA256 /p ${{inputs.cert-password}} /t http://timestamp.digicert.com/?alg=sha256 ${{inputs.filepath}}
+        run: ${{ github.action_path }}\src\signtool.exe sign /q /f Certificate.pfx /fd SHA256 /p ${{inputs.cert-password}} /t ${{inputs.timeStampUrl}} ${{inputs.filepath}}
