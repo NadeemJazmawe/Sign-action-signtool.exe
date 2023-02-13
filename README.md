@@ -1,5 +1,5 @@
 # Sign-action-signtool.exe
-This action has been developed to be used in [Ginger](https://github.com/Ginger-Automation/Ginger) CI/CD, Ginger is a open source automation framework build by ** Amdocs **.
+This action has been developed to be used in [Ginger](https://github.com/Ginger-Automation/Ginger) CI/CD, Ginger is a open source automation framework build by **Amdocs**.
 
 Check it out - [https://ginger.amdocs.com/](https://ginger.amdocs.com/)
 
@@ -45,4 +45,4 @@ runs-on: windows-latest
 
 
 
-*** Enjoy using it ***
+***Enjoy Using it***
