@@ -38,4 +38,4 @@ runs:
   
       - name: 'Sign the file'      
         shell: pwsh
-        run: ${{ github.action_path }}\src\signtool.exe sign /q /f Certificate.pfx /fd SHA256 /p ${{inputs.cert-password}} /t ${{inputs.timeStampUrl}} ${{inputs.filepath}}
+        run: for /R ${{inputs.Directorypath}} do ${{ github.action_path }}\src\signtool.exe sign /q /f Certificate.pfx /fd SHA256 /p ${{inputs.cert-password}} /t ${{inputs.timeStampUrl}} ${{inputs.Directorypath}}
