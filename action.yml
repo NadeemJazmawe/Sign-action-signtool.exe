@@ -4,8 +4,8 @@ description: This action Sign files using windows signtool.exe
 author: '@NadeemJazmawe'
 
 inputs:
-  filepath:
-    description: 'Path to file to sign'
+   ${{inputs.Di:
+    description: 'Path to the Direcory to sign recursive'
     required: true
     
   certificate:
