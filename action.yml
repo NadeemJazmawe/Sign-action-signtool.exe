@@ -38,4 +38,5 @@ runs:
   
       - name: 'Sign the file'      
         shell: pwsh
-        run: for /R ${{inputs.Directorypath}} do ${{ github.action_path }}\src\signtool.exe sign /q /f Certificate.pfx /fd SHA256 /p ${{inputs.cert-password}} /t ${{inputs.timeStampUrl}} ${{inputs.Directorypath}}
+        run: Get-ChildItem -Path ${{inputs.Directorypath}} -Recurse | ForEach-Object { ${{ github.action_path }}\src\signtool.exe sign /q /f Certificate.pfx /fd SHA256 /p ${{inputs.cert-password}} /t ${{inputs.timeStampUrl}} ${{$_.FullName}} }
+    
