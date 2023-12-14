@@ -4,7 +4,7 @@ description: This action Sign files using windows signtool.exe
 author: '@NadeemJazmawe'
 
 inputs:
-   ${{inputs.Di:
+   Directorypath:
     description: 'Path to the Direcory to sign recursive'
     required: true
     
